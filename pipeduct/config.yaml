@@ -9,15 +9,11 @@ pipeline:
 
       stack:
 
-         # Name pattern for CloudFormation stacks
-         # See https://ruby-doc.org/stdlib-2.5.0/libdoc/erb/rdoc/ERB.html
-         # for the template language (syntax, filters, etc.)
-         # and https://pipeduct.io/docs/config
-         # for the available variables.
-         name: pipeline-{{ branch }}
+         # Prefix for CloudFormation stack names
+         # The pull request identifier will be appended
+         name-prefix: pipeline-ORGANIZATION-REPOSITORY-
 
-         # Tags for the stack
-         # The tag Manager=webpipe is automatically added
+         # Tags for CloudFormation stacks
          tags:
             foo: bar
             Type: pipeline
