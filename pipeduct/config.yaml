@@ -1,0 +1,27 @@
+---
+
+pipeline:
+
+   cloudformation:
+
+      template:
+
+         # FIXME: decide and choose corresponding explanation
+         # Pipeline definition. This is pasted verbatim with AWS::Include
+         # Pipeline stack template. CloudFormation stacks will be deployed from this template as-is
+         pipeline: cfn/pipeline/definition.yaml
+
+         # Extra resources needed by the pipeline. These are created through
+         # a nested stack (AWS::CloudFormation::Stack) and may be referenced
+         # from the fragment above
+         extra: cfn/pipeline/extra.yaml
+
+      stack:
+
+         # Jinja2 template, see https://jinja2.io/erere
+         name: www-pipeline-{{ branch }}
+
+         # Tags for the stack. The tag Manager=webpipe is automatically added
+         tags:
+            foo: bar
+            Type: pipeline
