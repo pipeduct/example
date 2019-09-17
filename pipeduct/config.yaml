@@ -1,5 +1,17 @@
 ---
 
+aws:
+
+   account: 'ACCOUNT_ID' # as string
+
+   partition: aws
+
+   roles:
+
+      app: NAME_OF_THE_APP_ROLE
+
+      cloudformation: NAME_OF_THE_CLOUDFORMATION_ROLE
+
 pipeline:
 
    cloudformation:
